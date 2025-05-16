@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Kuis YA atau TIDAK</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      overflow: hidden;
+    }
+
+    h1 {
+      margin-bottom: 50px;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+      position: absolute;
+      transition: 0.3s ease;
+    }
+
+    #yesBtn {
+      background-color: green;
+    }
+
+    #noBtn {
+      background-color: red;
+    }
+
+    .container {
+      position: relative;
+      width: 100%;
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <h1>1. Saya bodoh bermain game Free Fire?</h1>
+  <div class="container">
+    <button id="yesBtn" class="btn" style="left: 30%; top: 150px;">YA</button>
+    <button id="noBtn" class="btn" style="left: 60%; top: 150px;">TIDAK</button>
+  </div>
+
+  <script>
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const container = document.querySelector(".container");
+
+    yesBtn.addEventListener("click", () => {
+      alert("YAHAHA NGAKU JUGA SI BOT");
+    });
+
+    noBtn.addEventListener("click", () => {
+      const containerRect = container.getBoundingClientRect();
+      const btnWidth = noBtn.offsetWidth;
+      const btnHeight = noBtn.offsetHeight;
+
+      const maxX = containerRect.width - btnWidth;
+      const maxY = containerRect.height - btnHeight;
+
+      const randomX = Math.random() * maxX;
+      const randomY = Math.random() * maxY;
+
+      noBtn.style.left = `${randomX}px`;
+      noBtn.style.top = `${randomY}px`;
+    });
+  </script>
+</body>
+</html>
